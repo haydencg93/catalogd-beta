@@ -3,10 +3,11 @@ import { loadConfig } from './core/config.js';
 import { getSupabaseClient } from './core/supabase.js';
 import { normalizeOpenLibraryId } from './core/media.js';
 
-// Global vars
+// Load configuration and initialize Supabase client
 let PROXY_URL = '';
-const params = new URLSearchParams(window.location.search);
 let supabaseClient = null;
+
+// Global vars
 let globalData = null;
 let tvmazeEpisodesMap = {};
 let fullCastData = [];
@@ -14,7 +15,8 @@ let fullCrewData = [];
 let directorData = null;
 let allLogsData = [];
 
-// 
+// Get parameters
+const params = new URLSearchParams(window.location.search);
 const id = params.get('id');
 const type = params.get('type');
 
